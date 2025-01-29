@@ -10,9 +10,18 @@ use App\Models\User;
 
 class EmployeeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $employees = Employee::with('user')->get();
+        $search = $request->input('search');
+
+        $employees = Employee::with('user') 
+            ->when($search, function ($query, $search) {
+                return $query->whereHas('user', function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%");
+                });
+        })
+        ->get();
+
         return view('admin.users.index', compact('employees'));
     }
 

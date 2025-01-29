@@ -14,9 +14,26 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <form action='{{ route('employee.index') }}' method="GET">
+                    @csrf
+                    <h5>Search</h5>
+                    <div class='d-flex flex-row' style='gap: 8px'>
+                        <input name='search' class="form-control" type='text' placeholder="Search by employee name">
+                        <button class='btn btn-success btn-sm'>Search</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
      <div class='card'>
        <div class='card-body'>
-            <a href='{{ route('employee.create') }}' class='btn btn-primary'>Add Employee</a>
+            <a href='{{ route('employee.create') }}' class='mb-2 btn btn-primary'>Add Employee</a>
             <div class='table-responsive'>
                 
             <table class="table table-hover table-striped">
