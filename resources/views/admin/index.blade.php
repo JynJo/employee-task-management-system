@@ -9,7 +9,8 @@
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <p></p>
+   
+
 @stop
 
 {{-- Push extra CSS --}}

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Task Management',
+    'title' => 'Employee Management',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -328,8 +328,8 @@ return [
         //     'label_color' => 'success',
         // ],
         [
-            'text' => 'User Management',
-            'url' => 'admin/users',
+            'text' => 'Employee Management',
+            'url' => 'admin/employee',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'account_settings'],
