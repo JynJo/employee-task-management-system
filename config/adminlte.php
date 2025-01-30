@@ -332,6 +332,11 @@ return [
             'url' => 'admin/employee',
             'icon' => 'fas fa-fw fa-users',
         ],
+        [
+            'text' => 'Task Management',
+            'url' => 'admin/tasks',
+            'icon' => 'fas fa-fw fa-tasks',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

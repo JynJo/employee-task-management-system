@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
-{{-- Customize layout sections --}}
-
-{{-- @section('subtitle', 'Welcome')
-@section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Welcome')
- --}}
 @section('content_header')
-    <h1>Employee Management</h1>
+    <h1>Task Management</h1>
 @stop
 
 {{-- Content body: main page content --}}
@@ -32,25 +26,22 @@
 
      <div class='card'>
        <div class='card-body'>
-            <a href='{{ route('employee.create') }}' class='mb-2 btn btn-primary'>Add Employee</a>
+            <a href='{{ route('employee.create') }}' class='mb-2 btn btn-primary'>Add Task</a>
             <div class='table-responsive'>
                 
             <table class="table table-hover table-striped">
                 <thead >
-                    <th style='font-weight: normal !important;'>ID</th>
-                    <th style='font-weight: normal !important;'>Name</th>
-                    <th style='font-weight: normal !important;'>Address</th>
-                    <th style='font-weight: normal !important;'>Age</th>
-                    <th style='font-weight: normal !important;'>Hired Date</th>
-                    <th style='font-weight: normal !important;'>Department</th>
-                    <th style='font-weight: normal !important;'>Job Title</th>
-                    <th style='font-weight: normal !important;'>Image</th>
-                    <th style='font-weight: normal !important;'>Email</th>
+                    <th style='font-weight: normal !important;'>Task Title</th>
+                    <th style='font-weight: normal !important;'>Task Description</th>
+                    <th style='font-weight: normal !important;'>Assigned</th>
+                    <th style='font-weight: normal !important;'>Start Date</th>
+                    <th style='font-weight: normal !important;'>Deadline</th>
+                    <th style='font-weight: normal !important;'>Progress</th>
                     <th style='font-weight: normal !important;'>Action</th>
                 </thead>    
 
                 <tbody>
-                    @foreach ($employees as  $employee)
+                   {{--  @foreach ($employees as  $employee)
                         <tr>
                             <td>{{ $employee->id }}</td>
                             <td>{{ $employee->user->name }}</td>
@@ -67,7 +58,7 @@
                                 <button class='btn btn-sm btn-danger'>Delete</button>
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach --}}
 
                 </tbody>
 

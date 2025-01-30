@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\TaskController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,4 +20,10 @@ Route::prefix('admin')->controller(EmployeeController::class)->group(function() 
     Route::get('employee', 'index')->name('employee.index');
     Route::post('employee', 'store')->name('employee.store');
     Route::get('employee/create', 'create')->name('employee.create');
+})->middleware('auth');
+
+Route::prefix('admin')->controller(TaskController::class)->group(function() {
+    Route::get('tasks', 'index')->name('tasks.index');
+    // Route::post('tasks', 'store')->name('tasks.store');
+    // Route::get('tasks/create', 'create')->name('tasks.create');
 })->middleware('auth');
