@@ -1,46 +1,49 @@
 @extends('layouts.app')
 
 @section('content_header')
-    <h1>Task Management</h1>
+<h1>Task Management</h1>
 @stop
 
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <div class="card">
-        <div class="card-body">
-            <div class="card-title">
-                <form action='{{ route('employee.index') }}' method="GET">
-                    @csrf
-                    <h5>Search</h5>
-                    <div class='d-flex flex-row' style='gap: 8px'>
-                        <input name='search' class="form-control" type='text' placeholder="Search by employee name">
-                        <button class='btn btn-success btn-sm'>Search</button>
-                    </div>
-                </form>
 
-            </div>
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">
+            <form action='{{ route('employee.index') }}' method="GET">
+                @csrf
+                <h5>Search</h5>
+                <div class='d-flex flex-row' style='gap: 8px'>
+                    <input name='search' class="form-control" type='text' placeholder="Search by employee name">
+                    <button class='btn btn-success btn-sm'>Search</button>
+                </div>
+            </form>
 
         </div>
+
     </div>
+</div>
 
-     <div class='card'>
-       <div class='card-body'>
-            <a href='{{ route('employee.create') }}' class='mb-2 btn btn-primary'>Add Task</a>
-            <div class='table-responsive'>
-                
-            <table class="table table-hover table-striped">
-                <thead >
-                    <th style='font-weight: normal !important;'>Task Title</th>
-                    <th style='font-weight: normal !important;'>Task Description</th>
-                    <th style='font-weight: normal !important;'>Assigned</th>
-                    <th style='font-weight: normal !important;'>Start Date</th>
-                    <th style='font-weight: normal !important;'>Deadline</th>
-                    <th style='font-weight: normal !important;'>Progress</th>
-                    <th style='font-weight: normal !important;'>Action</th>
-                </thead>    
+<div class='card'>
+ <div class='card-body'>
+    <a href='{{ route('tasks.create') }}' class='mb-2 btn btn-primary'>Add Task</a>
+    <div class='table-responsive'>
 
-                <tbody>
+        <table class="table table-hover table-striped">
+            <thead >
+                <th style='font-weight: normal !important;'>Task Title</th>
+                <th style='font-weight: normal !important;'>Task Description</th>
+                <th style='font-weight: normal !important;'>Assigned</th>
+                <th style='font-weight: normal !important;'>Start Date</th>
+                <th style='font-weight: normal !important;'>Deadline</th>
+                <th style='font-weight: normal !important;'>Progress</th>
+                <th style='font-weight: normal !important;'>Action</th>
+            </thead>    
+
+            <tbody>
                    {{--  @foreach ($employees as  $employee)
                         <tr>
                             <td>{{ $employee->id }}</td>
@@ -58,25 +61,25 @@
                                 <button class='btn btn-sm btn-danger'>Delete</button>
                             </td>
                         </tr>
-                    @endforeach --}}
+                        @endforeach --}}
 
-                </tbody>
+                    </tbody>
 
-            </table>
+                </table>
             </div>
 
-       </div> 
+        </div> 
     </div>
-@stop
+    @stop
 
-{{-- Push extra CSS --}}
+    {{-- Push extra CSS --}}
 
-@push('css')
+    @push('css')
     {{-- Add here extra stylesheets --}}
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-@endpush
+    @endpush
 
-{{-- Push extra scripts --}}
+    {{-- Push extra scripts --}}
 
-@push('js')
-@endpush
+    @push('js')
+    @endpush
