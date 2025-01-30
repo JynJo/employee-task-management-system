@@ -7,12 +7,13 @@ use App\Http\Requests\StoreTaskRequest;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\User;
+use App\Models\Employee;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::with('employee.user')->get();
         return view('admin.tasks.index', compact('tasks'));
     }
 
@@ -24,7 +25,14 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request)
     {
-        Task::create($request->validated());
+        $employee = Employee::where('user_id', $request->user_id)->first();
+        Task::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'employee_id' => $employee->id
+        ]);
 
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
 

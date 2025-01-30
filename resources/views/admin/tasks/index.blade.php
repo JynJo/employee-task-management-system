@@ -13,11 +13,11 @@
 <div class="card">
     <div class="card-body">
         <div class="card-title">
-            <form action='{{ route('employee.index') }}' method="GET">
+            <form action='{{ route('tasks.index') }}' method="GET">
                 @csrf
                 <h5>Search</h5>
                 <div class='d-flex flex-row' style='gap: 8px'>
-                    <input name='search' class="form-control" type='text' placeholder="Search by employee name">
+                    <input name='search' class="form-control" type='text' placeholder="Search by task name">
                     <button class='btn btn-success btn-sm'>Search</button>
                 </div>
             </form>
@@ -44,24 +44,23 @@
             </thead>    
 
             <tbody>
-                   {{--  @foreach ($employees as  $employee)
+                    @foreach ($tasks as  $task)
                         <tr>
-                            <td>{{ $employee->id }}</td>
-                            <td>{{ $employee->user->name }}</td>
-                            <td>{{ $employee->address }}</td>
-                            <td>{{ $employee->age }}</td>
-                            <td>{{ $employee->hired_date }}</td>
-                            <td>{{ $employee->department }}</td>
-                            <td>{{ $employee->job_title }}</td>
-                            <td><img src='https://placehold.co/100'/></td>
-                            <td>{{ $employee->user->email }}</td>
+                            <td>{{ $task->title }}</td>
+                            <td>{{ $task->description }}</td>
+                            <td>{{ $task->employee->user->name }}</td>
+                            <td>{{ $task->start_time }}</td>
+                            <td>{{ $task->end_time }}</td>
+                            <td>
+                                <progress value="60" max="100">60%</progress>                                
+                            </td>
                             <td>
                                 <button class='btn btn-sm btn-primary'>View</button>
                                 <button class='btn btn-sm btn-success'>Edit</button>
                                 <button class='btn btn-sm btn-danger'>Delete</button>
                             </td>
                         </tr>
-                        @endforeach --}}
+                        @endforeach
 
                     </tbody>
 
