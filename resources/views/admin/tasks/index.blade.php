@@ -39,7 +39,7 @@
                 <th style='font-weight: normal !important;'>Assigned</th>
                 <th style='font-weight: normal !important;'>Start Date</th>
                 <th style='font-weight: normal !important;'>Deadline</th>
-                <th style='font-weight: normal !important;'>Progress</th>
+                <th style='font-weight: normal !important;'>Status</th>
                 <th style='font-weight: normal !important;'>Action</th>
             </thead>    
 
@@ -52,12 +52,12 @@
                             <td>{{ $task->start_time }}</td>
                             <td>{{ $task->end_time }}</td>
                             <td>
-                                <progress value="60" max="100">60%</progress>                                
+                                <span class='text-danger'>Incomplete</span>
                             </td>
-                            <td>
-                                <button class='btn btn-sm btn-primary'>View</button>
-                                <button class='btn btn-sm btn-success'>Edit</button>
-                                <button class='btn btn-sm btn-danger'>Delete</button>
+                            <td class='d-grid gap-3'>
+                                <button class='btn btn-sm btn-primary'><i class='fas fa-eye'></i></button>
+                                <button class='btn btn-sm btn-success'><i class='fas fa-pen'></i></button>
+                                <button class='btn btn-sm btn-danger'><i class='fas fa-trash'></i></button>
                             </td>
                         </tr>
                         @endforeach

@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\TaskController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 })->name('login');
 
 Route::get('dashboard', function() {

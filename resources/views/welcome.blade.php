@@ -23,9 +23,10 @@
     <div class="container-center">
         <div class="col-md-6 col-lg-4">
             <div class="card">
+                <div class="card-header text-center">
+                  <a class="h4">Login</a>
+                </div>
                 <div class="card-body">
-                    <h3 class="card-title text-center mb-4 fs-4">Login</h3> <!-- Medium text size -->
-                    
                     @if($errors->has('email'))
                         {{ $errors->first('email') }}
                     @endif   
