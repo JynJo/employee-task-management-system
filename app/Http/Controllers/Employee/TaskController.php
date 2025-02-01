@@ -28,7 +28,7 @@ class TaskController extends Controller
             'status' => $request->status
         ]);
 
-        return redirect()->back()->with('success', 'Status for task ' . $task->name . ' has updated successfully.');
+        return redirect()->back()->with('success', 'Task status has updated successfully.');
 
     }
 

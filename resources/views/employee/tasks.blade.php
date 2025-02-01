@@ -61,20 +61,13 @@
     </div>
 </div>
 
-<div class="card">
-    <div class="card-body">
-        <div class="card-title">
-            <form action='{{ route('tasks.index') }}' method="GET">
-                @csrf
-                <h5>Search</h5>
-                <div class='d-flex flex-row' style='gap: 8px'>
-                    <input name='search' class="form-control" type='text' placeholder="Search by task name">
-                    <button class='btn btn-success btn-sm'>Search</button>
-                </div>
-            </form>
+@if(Session::has('success'))
+    <div class='card bg-success'>
+        <div class='card-body'>
+            <h5>{{ Session::get('success') }}</h5>
         </div>
     </div>
-</div>
+@endif
 
 <div class='card'>
    <div class='card-body'>
@@ -103,15 +96,14 @@
                                 : (($task->status == 'inprogress') ? 'bg-warning rounded' 
                                 : 'bg-success rounded') 
                             }} 
-                            mr-2 text-capitalize'
+                            mr-2 text-capitalize px-2'
                         >{{ $task->status }}</span>
                         <button
                             data-id='{{ $task->id }}'
-                            id='update-btn'
                             type="button"
                             data-bs-toggle="modal" 
                             data-bs-target="#exampleModal"
-                            class='btn btn-sm btn-success'>
+                            class='update-btn btn btn-sm btn-success'>
                             <i class='fas fa-pen'></i>
                         </button>
                     </td>
@@ -157,10 +149,10 @@
 
             }
 
-            $("#update-btn").each(function() {
+            $(".update-btn").each(function() {
                 $(this).on('click', async function() {
                     var id = $(this).data('id')
-
+                    console.log(id)
                     try {
                         const fetchedTask = await fetchTask(id);
                         $("#task-id").val(fetchedTask.id);
@@ -175,8 +167,6 @@
                     }
 
                     /* Set values */
-
-
 
                 })
             })
