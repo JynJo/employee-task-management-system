@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('start_time');
             $table->enum('status', ['inprogress', 'incomplete', 'completed' ])->default('incomplete');
             $table->date('end_time');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

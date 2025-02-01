@@ -42,6 +42,8 @@
                         </div>
                     </div>
 
+                    
+
                     <div>
                         <label>Update Status</label>
                         <select class='form-control' name='status' id='task-status'>
@@ -51,6 +53,12 @@
                             <option value="completed">Completed</option>
                         </select>
                     </div>
+
+                    <div>
+                        <label>Add Notes</label>
+                        <textarea id='task-notes' name='notes' class='form-control'></textarea>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -162,6 +170,7 @@
                         $("#task-end-time").val(fetchedTask.end_time);
                         $("#task-end-time").val(fetchedTask.end_time);
                         $("#task-status").val(fetchedTask.status);
+                        $("#task-notes").val(fetchedTask.notes);
                     } catch(err) {
                         console.error(err)
                     }

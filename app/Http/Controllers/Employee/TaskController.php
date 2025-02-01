@@ -25,7 +25,8 @@ class TaskController extends Controller
     {
         $task = Task::find($request->task_id);
         $task->update([
-            'status' => $request->status
+            'status' => $request->status,
+            'notes' => $request->notes
         ]);
 
         return redirect()->back()->with('success', 'Task status has updated successfully.');
