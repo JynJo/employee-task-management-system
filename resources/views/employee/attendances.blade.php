@@ -47,9 +47,9 @@
             <tbody>
                 @foreach ($attendances as  $attendance)
                 <tr>
-                    <td>{{ $attendance->day }}</td>
-                    <td>{{ $attendance->check_in }}</td>
-                    <td>{{ $attendance->check_out }}</td>
+                    <td>{{ \Carbon\Carbon::parse($attendance->day)->format('M, d, Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($attendance->check_in)->format('H:i A') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($attendance->check_out)->format('H:i A') }}</td>
                 </tr>
                 @endforeach
 
