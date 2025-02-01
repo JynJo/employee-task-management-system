@@ -21,9 +21,7 @@
                     <button class='btn btn-success btn-sm'>Search</button>
                 </div>
             </form>
-
         </div>
-
     </div>
 </div>
 
@@ -41,23 +39,18 @@
             </thead>    
 
             <tbody>
-                    {{-- @foreach ($tasks as  $task)
+                    @foreach ($tasks as  $task)
                         <tr>
                             <td>{{ $task->title }}</td>
                             <td>{{ $task->description }}</td>
-                            <td>{{ $task->employee->user->name }}</td>
                             <td>{{ $task->start_time }}</td>
                             <td>{{ $task->end_time }}</td>
                             <td>
-                                <span class='text-danger'>Incomplete</span>
-                            </td>
-                            <td class='d-grid gap-3'>
-                                <button class='btn btn-sm btn-primary'><i class='fas fa-eye'></i></button>
+                                <span class='text-danger mr-2'>Incomplete</span>
                                 <button class='btn btn-sm btn-success'><i class='fas fa-pen'></i></button>
-                                <button class='btn btn-sm btn-danger'><i class='fas fa-trash'></i></button>
                             </td>
                         </tr>
-                        @endforeach --}}
+                        @endforeach
 
                     </tbody>
 
