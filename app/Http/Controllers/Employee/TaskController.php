@@ -21,4 +21,15 @@ class TaskController extends Controller
         return response()->json($task);
     }
 
+    public function updateTaskStatus(Request $request)
+    {
+        $task = Task::find($request->task_id);
+        $task->update([
+            'status' => $request->status
+        ]);
+
+        return redirect()->back()->with('success', 'Status for task ' . $task->name . ' has updated successfully.');
+
+    }
+
 }

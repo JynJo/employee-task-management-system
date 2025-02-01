@@ -31,3 +31,4 @@ Route::prefix('admin')->controller(TaskController::class)->group(function() {
 /* Thisu Routes is for employees */
 Route::get('my-tasks', [App\Http\Controllers\Employee\TaskController::class, 'index'])->name('employee.tasks.index');
 Route::get('fetch-task/{id}', [App\Http\Controllers\Employee\TaskController::class, 'fetchTask'])->name('employee.tasks.fetch');
+Route::post('task-update-status', [App\Http\Controllers\Employee\TaskController::class, 'updateTaskStatus'])->name('employee.tasks.update-status');
