@@ -346,12 +346,23 @@ return [
             'url' => 'admin/tasks',
             'icon' => 'fas fa-fw fa-tasks',
         ],
+        
+        /*=========Employee Links=========*/
         [
             'text' => 'My Tasks',
             'can' => 'employee',
             'url' => '/my-tasks',
             'icon' => 'fas fa-fw fa-tasks',
         ],
+        [
+            'text' => 'Attendance',
+            'can' => 'employee',
+            'url' => '/my-attendances',
+            'icon' => 'fas fa-fw fa-clock',
+        ],
+
+        /*==============================*/
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
