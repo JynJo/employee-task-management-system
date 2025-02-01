@@ -329,6 +329,7 @@ return [
         // ],
         [
             'text' => 'Employee Management',
+            'can' => 'manage-employee',
             'url' => 'admin/employee',
             'icon' => 'fas fa-fw fa-users',
         ],

@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Models\Employee;
 use App\Models\User;
 
 class EmployeeController extends Controller
 {
+    public function __construct() {
+        Gate::authorize('manage-employee', Auth::user() );
+    }
     public function index(Request $request)
     {
         $search = $request->input('search');
@@ -39,6 +44,8 @@ class EmployeeController extends Controller
             'name' => $full_name,
             'email' => $request->email,
         ]);
+
+        $user->roles()->attach(1);
 
         Employee::create([
             'user_id' => $user->id,
