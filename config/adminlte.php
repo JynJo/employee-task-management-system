@@ -335,7 +335,14 @@ return [
         ],
         [
             'text' => 'Task Management',
+            'can' => 'manage-employee',
             'url' => 'admin/tasks',
+            'icon' => 'fas fa-fw fa-tasks',
+        ],
+        [
+            'text' => 'My Tasks',
+            'can' => 'employee',
+            'url' => '/my-tasks',
             'icon' => 'fas fa-fw fa-tasks',
         ],
         ['header' => 'account_settings'],

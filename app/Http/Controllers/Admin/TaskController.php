@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTaskRequest;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\User;
@@ -11,6 +13,10 @@ use App\Models\Employee;
 
 class TaskController extends Controller
 {
+    public function __construct() {
+        Gate::authorize('manage-employee', Auth::user() );
+    }
+
     public function index()
     {
         $tasks = Task::with('employee.user')->get();

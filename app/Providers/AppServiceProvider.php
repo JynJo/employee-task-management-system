@@ -24,5 +24,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('manage-employee', function (User $user) {
             return $user->roles()->first()->name == 'admin';
         });
+
+        Gate::define('employee', function (User $user) {
+            return $user->roles()->first()->name == 'employee';
+        });
     }
 }

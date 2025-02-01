@@ -27,3 +27,6 @@ Route::prefix('admin')->controller(TaskController::class)->group(function() {
     Route::post('tasks', 'store')->name('tasks.store');
     Route::get('tasks/create', 'create')->name('tasks.create');
 })->middleware('auth');
+
+/* Thisu Routes is for employees */
+Route::get('my-tasks', [App\Http\Controllers\Employee\TaskController::class, 'index'])->name('employee.tasks.index');
