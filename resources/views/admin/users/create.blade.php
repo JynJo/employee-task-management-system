@@ -8,7 +8,6 @@
  --}}
 @section('content_header')
     <h1>Employee Management</h1>
-
 @stop
 
 {{-- Content body: main page content --}}

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->foreignId('employee_id')->nullable()->constrained()->onDelete('cascade');
             $table->date('start_time');
+            $table->enum('status', ['inprogress', 'incomplete', 'completed' ])->default('incomplete');
             $table->date('end_time');
             $table->timestamps();
         });

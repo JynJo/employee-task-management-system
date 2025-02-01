@@ -52,7 +52,7 @@
                             <td>{{ $task->start_time }}</td>
                             <td>{{ $task->end_time }}</td>
                             <td>
-                                <span class='text-danger'>Incomplete</span>
+                                <span class='text-danger text-capitalize'>{{ $task->status }}</span>
                             </td>
                             <td class='d-grid gap-3'>
                                 <button class='btn btn-sm btn-primary'><i class='fas fa-eye'></i></button>

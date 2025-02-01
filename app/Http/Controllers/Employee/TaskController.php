@@ -14,4 +14,11 @@ class TaskController extends Controller
 
         return view('employee.tasks', compact('tasks'));
     }
+
+    public function fetchTask(string $id) {
+        $task = Task::find($id);
+
+        return response()->json($task);
+    }
+
 }
