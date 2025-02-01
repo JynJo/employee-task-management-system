@@ -4,13 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\TaskController;
+use App\Models\Task;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('auth.login');
 })->name('login');
 
 Route::get('dashboard', function() {
-    return view('admin.index');
+    $employee_count = User::has('employee')->count();
+    $tasks_count = Task::count();
+    $completed_tasks = Task::where('status', 'completed')->count();
+    $incomplete_tasks = Task::where('status', 'incomplete')->count();
+    return view('admin.index', compact('employee_count', 'tasks_count', 'completed_tasks', 'incomplete_tasks'));
 })->name('dashboard')->middleware('auth');
 
 Route::post('authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
