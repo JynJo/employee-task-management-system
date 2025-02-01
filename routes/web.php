@@ -40,3 +40,4 @@ Route::get('fetch-task/{id}', [App\Http\Controllers\Employee\TaskController::cla
 Route::post('task-update-status', [App\Http\Controllers\Employee\TaskController::class, 'updateTaskStatus'])->name('employee.tasks.update-status');
 
 Route::get('my-attendances', [App\Http\Controllers\Employee\AttendanceController::class, 'index'])->name('employee.attendances.index');
+Route::post('my-attendances', [App\Http\Controllers\Employee\AttendanceController::class, 'store'])->name('employee.attendances.store');

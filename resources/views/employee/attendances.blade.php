@@ -19,43 +19,39 @@
 <div class='card'>
    <div class='card-body'>
     <div class='table-responsive'>
-        <button class='btn btn-success mb-4'>Check in</button>
+        @if($already_checked_in && !$attendance->check_out)
+            <form action='{{ route('employee.attendances.store') }}' method="POST">
+                @csrf
+                <button class='btn btn-success mb-4'>Check Out</button>
+            </form>
+        @elseif($already_checked_in && $attendance->check_out)
+            <div class='m-2 mb-4'>
+                <span class='bg-success p-2 rounded'>Attendance Completed</span>
+            </div>
+        @else
+            <form action='{{ route('employee.attendances.store') }}' method="POST">
+                @csrf
+                <button class='btn btn-success mb-4'>Check in</button>
+            </form>
+        @endif
+
         <table class="table table-hover table-striped">
             <thead >
                 <th style='font-weight: normal !important;'>Day</th>
-                <th style='font-weight: normal !important;'>Time In</th>
-                <th style='font-weight: normal !important;'>Time Out</th>
+                <th style='font-weight: normal !important;'>Check In</th>
+                <th style='font-weight: normal !important;'>Check Out</th>
                 {{-- <th style='font-weight: normal !important;'>Expected Deadline</th> --}}
                 {{-- <th style='font-weight: normal !important;'>Status</th> --}}
             </thead>    
 
             <tbody>
-              {{--   @foreach ($tasks as  $task)
+                @foreach ($attendances as  $attendance)
                 <tr>
-                    <td>{{ $task->title }}</td>
-                    <td>{{ $task->description }}</td>
-                    <td>{{ $task->start_time }}</td>
-                    <td>{{ $task->end_time }}</td>
-                    <td>
-                        <span 
-                            class='{{ 
-                                ($task->status == 'incomplete') ? 'bg-danger rounded' 
-                                : (($task->status == 'inprogress') ? 'bg-warning rounded' 
-                                : 'bg-success rounded') 
-                            }} 
-                            mr-2 text-capitalize px-2'
-                        >{{ $task->status }}</span>
-                        <button
-                            data-id='{{ $task->id }}'
-                            type="button"
-                            data-bs-toggle="modal" 
-                            data-bs-target="#exampleModal"
-                            class='update-btn btn btn-sm btn-success'>
-                            <i class='fas fa-pen'></i>
-                        </button>
-                    </td>
+                    <td>{{ $attendance->day }}</td>
+                    <td>{{ $attendance->check_in }}</td>
+                    <td>{{ $attendance->check_out }}</td>
                 </tr>
-                @endforeach --}}
+                @endforeach
 
             </tbody>
 
