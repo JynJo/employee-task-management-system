@@ -310,16 +310,17 @@ return [
             'topnav_right' => true,
         ],
 
+
         // Sidebar items:
         // [
         //     'type' => 'sidebar-menu-search',
         //     'text' => 'search',
         // ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
+        // [
+        //     'text' => 'blog',
+        //     'url' => 'admin/blog',
+        //     'can' => 'manage-blog',
+        // ],
         // [
         //     'text' => 'pages',
         //     'url' => 'admin/pages',
@@ -327,6 +328,12 @@ return [
         //     'label' => 4,
         //     'label_color' => 'success',
         // ],
+        [
+            'text' => 'Dashboard',
+            'can' => 'manage-employee',
+            'url' => '/dashboard',
+            'icon' => 'fas fa-tachometer-alt fa-fw',
+        ],
         [
             'text' => 'Employee Management',
             'can' => 'manage-employee',
